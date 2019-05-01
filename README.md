@@ -16,6 +16,8 @@ A few known wireless cards that use this driver include
 Linux Mint Tessa 19.1
 Currently tested on X86_64 and ARM platform(s) **only**, cross compile possible.
 
+Card name (lsusb) : **ID 0bda:0129 / Realtek Semiconductor Corp. RTS5129 Card Reader Controller**
+
 
 ## How to install**
 
