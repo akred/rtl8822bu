@@ -19,7 +19,7 @@ Currently tested on X86_64 and ARM platform(s) **only**, cross compile possible.
 Card name (lsusb) : **ID 0bda:0129 / Realtek Semiconductor Corp. RTS5129 Card Reader Controller**
 
 
-## How to install**
+## How to install
 
 ### DKMS support (recommended)
 
