@@ -77,7 +77,7 @@ After=hibernate.target suspend.target hybrid-sleep.target
 [Service]
 Type=oneshot
 ExecStart=/sbin/modprobe -r 8822bu
-ExecStart=/sbin/modprobe r8712u
+ExecStart=/sbin/modprobe 8822bu
 
 [Install]
 WantedBy=hibernate.target suspend.target hybrid-sleep.target
