@@ -13,7 +13,7 @@ A few known wireless cards that use this driver include
 
 ## Platform tested
 
-Linux Mint Tessa 19.1
+Linux Mint Tricia 19.3
 Currently tested on X86_64 and ARM platform(s) **only**, cross compile possible.
 
 Card name (lsusb) : **ID 0bda:0129 / Realtek Semiconductor Corp. RTS5129 Card Reader Controller**
@@ -49,6 +49,40 @@ To Unload driver you may need to disconnect the device
 
 If the driver fails building consult your distro how to  
 install the kernel sources and build an <u>external</u> module.
+
+## Troubleshooting
+
+### No wifi after suspend
+It is due to the fact that the module is not well supported
+For this, you need first to check by lauching this 2 commands :
+
+```
+sudo /sbin/modprobe -r 8822bu
+sudo /sbin/modprobe  8822bu
+```
+
+If the wifi works again, you can create a service to automate this command at each suspend/wakeup
+
+`
+sudo -H xed /etc/systemd/system/rtl8822bu-reload.service
+`
+
+Put this line inside this file and save it :
+
+```
+[Unit]
+Description=Reload rtl8822bu wireless lan driver after system resume
+After=hibernate.target suspend.target hybrid-sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/modprobe -r 8822bu
+ExecStart=/sbin/modprobe r8712u
+
+[Install]
+WantedBy=hibernate.target suspend.target hybrid-sleep.target
+```
+
 
 ## MISC
 
