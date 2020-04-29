@@ -83,6 +83,11 @@ ExecStart=/sbin/modprobe 8822bu
 WantedBy=hibernate.target suspend.target hybrid-sleep.target
 ```
 
+⚠️ After saving the file, do not forget to launch the command :
+
+`
+systemctl enable rtl8822bu-reload.service
+`
 
 ## MISC
 
