@@ -1,10 +1,10 @@
 # 8822BU Wifi driver for Linux
 
-Driver for 802.11ac USB Adapter with  
-RTL8822BU chipset  
-Only STA/Monitor Mode is supported, no AP.  
+Driver for 802.11ac USB Adapter with
+RTL8822BU chipset
+Only STA/Monitor Mode is supported, no AP.
 
-A few known wireless cards that use this driver include 
+A few known wireless cards that use this driver include
 * [Deepow Wifi 802.11n/g/b/a/AC (2.4G/300Mbps+5G/867Mbps)](https://www.amazon.fr/Dongle-Wifi-Adaptateur-Wireless-600Mbps/dp/B07NVJLPDD/ref=sr_1_5?keywords=Moglor&qid=1556401118&s=gateway&sr=8-5&th=1)
 * [Moglor Wifi AC - 600Mbps (2.4G/150Mbps + 5G/433Mbps)](https://www.amazon.fr/Moglor-Adaptateur-600Mbps-150Mbps-Compatible/dp/B07C4JQZSP/ref=sr_1_2?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=Moglor&qid=1556720371&s=gateway&sr=8-2)
 * [Edimax EW-7822ULC](http://us.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/us/wireless_adapters_ac1200_dual-band/ew-7822ulc/)
@@ -15,6 +15,8 @@ A few known wireless cards that use this driver include
 
 Linux Mint Tricia 19.3
 Currently tested on X86_64 and ARM platform(s) **only**, cross compile possible.
+
+_Update 09/05/2020_ : Test on last LTS Kernel **4.15.0-99-generic**
 
 Card name (lsusb) : **ID 0bda:0129 / Realtek Semiconductor Corp. RTS5129 Card Reader Controller**
 
@@ -35,19 +37,19 @@ sudo modprobe 8822bu
 
 ### Manual installation
 
-For compiling type  
-`make`  
-in source dir  
+For compiling type
+`make`
+in source dir
 
-To install the firmware files  
+To install the firmware files
 `sudo make install`
 
 
 ## NOTES
 
-To Unload driver you may need to disconnect the device  
+To Unload driver you may need to disconnect the device
 
-If the driver fails building consult your distro how to  
+If the driver fails building consult your distro how to
 install the kernel sources and build an <u>external</u> module.
 
 ## Troubleshooting
