@@ -25,6 +25,11 @@
 
 #define RT_TAG	'1178'
 
+/* This is to fix get_ds() type mismatch on kernels above 5.1.x */
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 1, 0))
+	#define get_ds() KERNEL_DS
+#endif
+
 #ifdef DBG_MEMORY_LEAK
 	#ifdef PLATFORM_LINUX
 		atomic_t _malloc_cnt = ATOMIC_INIT(0);
@@ -2017,7 +2022,7 @@ static int isFileReadable(char *path)
 		ret = PTR_ERR(fp);
 	else {
 		oldfs = get_fs();
-		set_fs(get_ds());
+		set_fs(KERNEL_DS);
 
 		if (1 != readFile(fp, &buf, 1))
 			ret = PTR_ERR(fp);
@@ -2047,7 +2052,7 @@ static int retriveFromFile(char *path, u8 *buf, u32 sz)
 			RTW_INFO("%s openFile path:%s fp=%p\n", __FUNCTION__, path , fp);
 
 			oldfs = get_fs();
-			set_fs(get_ds());
+			set_fs(KERNEL_DS);
 			ret = readFile(fp, buf, sz);
 			set_fs(oldfs);
 			closeFile(fp);
@@ -2082,7 +2087,7 @@ static int storeToFile(char *path, u8 *buf, u32 sz)
 			RTW_INFO("%s openFile path:%s fp=%p\n", __FUNCTION__, path , fp);
 
 			oldfs = get_fs();
-			set_fs(get_ds());
+			set_fs(KERNEL_DS);
 			ret = writeFile(fp, buf, sz);
 			set_fs(oldfs);
 			closeFile(fp);

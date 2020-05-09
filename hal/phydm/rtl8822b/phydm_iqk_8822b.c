@@ -456,7 +456,7 @@ _IQK_ConfigureMACBB_8822B(
 	ODM_SetBBReg(pDM_Odm, 0x550, BIT11|BIT3, 0x0);
 	ODM_SetBBReg(pDM_Odm, 0x90c, BIT15, 0x1);			/*0x90c[15]=1: dac_buf reset selection*/
 	ODM_SetBBReg(pDM_Odm, 0x9a4, BIT31, 0x0);         /*0x9a4[31]=0: Select da clock*/
-	/*0xc94[0]=1, 0xe94[0]=1: Åýtx±qiqk¥´¥X¨Ó*/
+	/*0xc94[0]=1, 0xe94[0]=1: Ã…Ã½txÂ±qiqkÂ¥Â´Â¥XÂ¨Ã“*/
 	ODM_SetBBReg(pDM_Odm, 0xc94, BIT0, 0x1);
 	ODM_SetBBReg(pDM_Odm, 0xe94, BIT0, 0x1); 
 	/* 3-wire off*/
@@ -877,7 +877,7 @@ _IQK_IQKbyPath_8822B(
 		else
 #endif
 			pDM_Odm->RFCalibrateInfo.IQKstep++;
-			break;	
+		break;	
 	case 6:		/*S1 RXIQK*/
 #if 1
 		_IQK_RXKSetting_8822B(pDM_Odm, ODM_RF_PATH_B);
